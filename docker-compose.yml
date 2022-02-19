@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  back:
+    ports:
+      - "5000:5000"
+    image: back:prod
+    env_file:
+      - back.env
+    volumes:
+      ### - ###    
+  front:
+    ports:
+      - "80:80"
+    image: front:prod
+    #stdin_open: true # docker run -i
+    #tty: true        # docker run -t
