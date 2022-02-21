@@ -66,7 +66,7 @@ All the code was written in either ```Python3``` 🐍 (frontend), or ```JavaScri
 > > - data wrangling was done using ```Pandas```
 > > - speech-to-text conversion was done using Google's Speech API (for lack of a good-enough open-source speech recognition model for French at the time)
 > > - keyphrase extraction was done using code from ```topicrankpy``` and ```SpaCy```'s pretrained PoS tagging model
-> > - emotion multilabel classification was done using ```torch``` and ```transformers``` (fine-tuned CamemBERT model on a particular dataset)
+> > - emotion multilabel classification was done using ```torch``` and ```transformers``` (using a fine-tuned CamemBERT model on a particular open-source dataset, which was then tested on collected data)
 > > - prosody analysis was done using ```myprosody``` 
 > - the database leverages ```MongoDB``` to store JS-like objects (questions, batches of questions, and results computed for each user session).
 
