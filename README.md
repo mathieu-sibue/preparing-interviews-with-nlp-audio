@@ -26,7 +26,7 @@ To solve our problem, we developed a **coaching platform** that leverages audio 
 6. the user can move on to the next question.
 
 
-:fr: **Note:** As the project was scoped to French job applicants, the user interface is in French, and the web app expects recordings in French.
+:fr: **Note:** As the project was targeted for French job applicants, the user interface is in French, and the web app expects recorded responses in French.
 
 :movie_camera: **Video demo of the platform:**
 
