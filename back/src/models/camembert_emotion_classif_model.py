@@ -23,16 +23,16 @@ class MyCamemBERTModel(nn.Module):
     num_labels = len(emotions)
 
 
-    def __init__(self):
+    def __init__(self, pretrained_camembert_path='../../res/models/emotion_classif/camembert_base/camembert-base-init'):
         """
-        uses a pretrained model (a camembert body in our case that will be instantiated later) to define our new one for multilabel emotion classification.
+        uses a pretrained model (a camembert body in our case) to define our new one for multilabel emotion classification.
         """
         super(MyCamemBERTModel, self).__init__()
         config = CamembertConfig()
         dirname = os.path.dirname(__file__)
-        weights_path = os.path.join(dirname, '../../res/models/emotion_classif/camembert_base/camembert-base-init')
-        camembert_pretrained = CamembertModel.from_pretrained(weights_path)
-        self.pretrained = camembert_pretrained
+        weights_path = os.path.join(dirname, pretrained_camembert_path)
+        pretrained_camembert = CamembertModel.from_pretrained(weights_path)
+        self.pretrained = pretrained_camembert
         self.dropout = nn.Dropout(config.hidden_dropout_prob)
         self.classifier = nn.Linear(config.hidden_size, self.num_labels)
         self.loss_fct = nn.BCEWithLogitsLoss()       
@@ -71,7 +71,7 @@ class MyCamemBERTModel(nn.Module):
 
         outputs = (no_logits,) + outputs[2:]  # we add to the tuple the hidden states and attention maps if they are provided
 
-        # labels are not essentiel during inference... unless we want to compute the loss
+        # labels are not essential during inference... unless we want to compute the loss
         if labels is not None:
             # the loss is computed only if we feed our model the target labels, which is necessary during training, but not for all inference calls
             loss = self.loss_fct(no_logits, labels)    
