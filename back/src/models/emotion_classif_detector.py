@@ -215,7 +215,7 @@ class EmotionDetector(object):
             if dev_loader is not None:
                 print("")
                 print('Validating...')
-                avg_dev_loss, avg_dev_accuracy, total_dev_f1 = self.evaluate_model(new_camembert_model, dev_loader)
+                avg_dev_loss, avg_dev_accuracy, total_dev_f1 = self.evaluate_other_model(new_camembert_model, dev_loader)
                 print(" Epoch "+str(_+1)+" avg dev loss: "+str(avg_dev_loss))
                 print(" Epoch "+str(_+1)+" avg dev accuracy: "+str(avg_dev_accuracy))
                 print(" Epoch "+str(_+1)+" avg dev f1: "+str(total_dev_f1))
